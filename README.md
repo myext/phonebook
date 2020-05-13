@@ -1,7 +1,9 @@
-1. Создать БД
+1. Запустить: composer install
+
+2. Создать БД
 
 
-2. Заполнить раздел БД в .env.example и переименовать в .env
+3. Заполнить раздел БД в .env.example и переименовать в .env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -10,15 +12,15 @@
     DB_PASSWORD=zzzzgggg
     
     
-3. Из корня проекта запустить 
-      php artisan migrate
+4. Из корня проекта запустить 
+      php artisan migrate    
       php artisan db:seed   
       
       
-4. Apache : при настройке виртуального хоста DocumentRoot - путь_до_проекта/public   
+5. Apache : при настройке виртуального хоста DocumentRoot - путь_до_проекта/public   
 
 
-5. API
+6. API
 
  **GET**  http://ваш_домен/api/user  - получить все записи 
    
