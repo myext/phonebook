@@ -4,12 +4,14 @@
 
 
 3. Заполнить раздел БД в .env.example и переименовать в .env
+```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=phonebook
     DB_USERNAME=root
     DB_PASSWORD=zzzzgggg
+    ```
     
     
 4. Из корня проекта запустить 
