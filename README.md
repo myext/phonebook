@@ -1,5 +1,6 @@
 1. Создать БД
 
+
 2. Заполнить раздел БД в .env.example и переименовать в .env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -8,20 +9,24 @@
     DB_USERNAME=root
     DB_PASSWORD=zzzzgggg
     
+    
 3. Из корня проекта запустить 
       php artisan migrate
       php artisan db:seed   
       
+      
 4. Apache : при настройке виртуального хоста DocumentRoot - путь_до_проекта/public   
+
 
 5. API
 
- Request Method:GET http://ваш_домен/api/user  - получить все записи 
+ **GET**  http://ваш_домен/api/user  - получить все записи 
    
    Пример ответа 
-    
-   "errors": false,
-       "data": [
+
+```json    
+    {"errors": false,   
+       "data": [    
            {
                "id": 1,
                "name": "Иван",
@@ -60,11 +65,14 @@
            }
        ]
    }
-   
- Request Method:GET http://ваш_домен/api/user/1 - получить запись по id
+```
+
+
+**GET**  http://ваш_домен/api/user/1 - получить запись по id
    
    Пример ответа
-   
+
+```json
    {
        "errors": false,
        "data": [
@@ -88,15 +96,18 @@
            }
        ]
    }
-   
- Request Method:GET  http://ваш_домен/api/user/name?name=Иван&surname=Иванов&patronymic=Юрьевич
+```
+  
+
+**GET**  http://ваш_домен/api/user/name?name=Иван&surname=Иванов&patronymic=Юрьевич
  
  Найти запись по фамилии / имени / отчеству. Допускается указание всех либо 
  нескольких переменных, например только имя ?surname=Иванов
  
  Пример ответа
- 
- "errors": false,
+
+```json
+ {"errors": false,
      "data": [
          {
              "id": 5,
@@ -117,14 +128,17 @@
              ]
          }
      ]
- }
+ }  
+```
  
- Request Method:GET http://ваш_домен/api/user/phone/131457411172
+ **GET**  http://ваш_домен/api/user/phone/131457411172
  
  Получить запись по номеру телефона ( допустимая длинна номера 10 - 12 знаков )
  
- Пример ответа
- 
+ Пример ответа 
+
+
+ ```json
  {
      "errors": false,
      "data": [
@@ -148,13 +162,17 @@
          }
      ]
  }
+ ```
+  
  
- Request Method:POST http://ваш_домен/api/user - создать запись. ( Символ "/" в конце URL недопустим )
+   
+**POST**  http://ваш_домен/api/user - создать запись. ( Символ "/" в конце URL недопустим )
  
  Номер телефона проверяется на уникальность
   
-  Пример запроса 
-  
+  Пример запроса
+
+ ```json
   {
       "name": "Иван",
       "surname": "Иванов",
@@ -169,10 +187,14 @@
               "is_mobile": 0
           }
       ]
-  }
+  } 
+  ```
+
   
-  Пример ответа 
+  Пример ответа
   
+
+```json
   {
       "errors": false,
       "data": [
@@ -196,13 +218,17 @@
           }
       ]
   }
+  ```
   
   
+  
 
-Request Method:DELETE http://ваш_домен/api/user/9  удалить запись
+**DELETE** http://ваш_домен/api/user/9  удалить запись
 
-Пример ответа 
+Пример ответа
 
+
+```json    
 {
     "errors": false,
     "data": [
@@ -211,11 +237,16 @@ Request Method:DELETE http://ваш_домен/api/user/9  удалить зап
         }
     ]
 }
+```
 
-Request Method:PUT http://ваш_домен/api/user редактировать запись. ( Символ "/" в конце URL недопустим )
+
+
+**PUT** http://ваш_домен/api/user редактировать запись. ( Символ "/" в конце URL недопустим )
 
 Пример запроса
 
+
+```json    
 {
     "id": 10,
     "name": "Иван",
@@ -228,10 +259,14 @@ Request Method:PUT http://ваш_домен/api/user редактировать 
         }
 ]
 }
+```
 
-Пример ответа 
 
-{
+Пример ответа
+
+
+```json    
+    {
     "errors": false,
     "data": [
         {
@@ -248,7 +283,8 @@ Request Method:PUT http://ваш_домен/api/user редактировать 
             ]
         }
     ]
-}
+    }  
+    ```
 
 
 
