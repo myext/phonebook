@@ -14,7 +14,7 @@
     
     ```    
     
-4. Из корня проекта запустить 
+4. Из корня проекта запустить     
       php artisan migrate    
       php artisan db:seed   
       
