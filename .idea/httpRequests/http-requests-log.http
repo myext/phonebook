@@ -1,0 +1,22 @@
+POST http://phonebook/api/user
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-05-11T114214.200.html
+
+###
+
+POST http://localhost:80/resources
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-05-11T114134.404.html
+
+###
+
+POST http://localhost:8080/resources
+Accept: */*
+Cache-Control: no-cache
+
+###
+
