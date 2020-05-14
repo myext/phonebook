@@ -53,6 +53,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+        if(config('app.debug')) return parent::render($request, $exception);
+
+
         if( $exception instanceof NotFoundHttpException  or
             $exception instanceof ModelNotFoundException) {
 
@@ -77,6 +81,5 @@ class Handler extends ExceptionHandler
             'data' => false,
         ], 500);
 
-        //return parent::render($request, $exception);
     }
 }
