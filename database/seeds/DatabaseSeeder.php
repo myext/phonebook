@@ -11,11 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cities')->insert([
-            'id' => 625144,
-            'name' => 'Минск',
-        ]);
-
         DB::table('users')->insert([
             'id' => 1,
             'name' => 'Иван',

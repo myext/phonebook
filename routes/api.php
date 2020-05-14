@@ -23,4 +23,12 @@ Route::post('/user', 'UserController@post');
 Route::delete('/user/{id}', 'UserController@delete')->where('id', '[0-9]+')->name('del_user');
 Route::put('/user', 'UserController@update')->name('update_user');
 
+Route::get('/weather/{year}/{month}/{day}', 'WeatherController@day')
+    ->where([
+        'year' => '[0-9]{4}',
+        'month' => '[0-9]{1,2}',
+        'day' => '[0-9]{1,2}'
+    ])->name('day_forecast');
+
+
 

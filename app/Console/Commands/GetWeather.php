@@ -39,9 +39,12 @@ class GetWeather extends Command
      */
     public function handle()
     {
+        $city_id = config('weather.city_id'); // Minsk city code
+        $appid = config('weather.appid'); // api user code
+
         $params = http_build_query([
-            'id' => '625144',
-            'appid' => '5894219f352ba792a51f901a0d76a463',
+            'id' => $city_id,
+            'appid' => $appid,
             'lang' => 'ru',
             'units' => 'metric',
 
@@ -57,17 +60,16 @@ class GetWeather extends Command
             ]
         ];
 
-        $city_id = 625144;
-
         $context = stream_context_create($opts);
 
-        $fp = fopen($url, "r", false, $context);
+        try{
+            $fp = fopen($url, "r", false, $context);
+            $answer = json_decode(stream_get_contents($fp), true);
 
-        $answer = json_decode(stream_get_contents($fp), true);
-
-        if(!$answer){
-            Log::error('Ошибка получения прогноза');
-            exit();
+        }catch ( \Exception $exception ){
+                Log::error('Ошибка получения прогноза');
+                Log::error($exception->getMessage());
+                exit();
         }
 
         $data = [];
@@ -98,5 +100,10 @@ class GetWeather extends Command
         foreach ($data as $item){
             $stmt->execute($item);
         }
+
+        Log::info('Погода обновлена');
     }
+
+
+
 }
