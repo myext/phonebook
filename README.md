@@ -1,4 +1,4 @@
-1. Запустить: composer install
+1. Запустить: ```composer install```
 
 2. Создать БД
 
