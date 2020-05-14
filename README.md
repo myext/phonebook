@@ -17,10 +17,15 @@
 4. Из корня проекта запустить     
 
       ```php artisan migrate```    
-      ```php artisan db:seed```    
+      ```php artisan db:seed```  
       
       
-      
+   Обеспечить доступ к файлам логов и кеша     
+   
+   ```
+   $ sudo chmod -R 777 storage/
+   ```    
+   
 5. Apache : при настройке виртуального хоста     
    DocumentRoot :  путь_до_проекта/public   
 
