@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ini_set('opcache.revalidate_freq', '0');
+
         User::deleted(function ($user) {
             $user->phones()->delete();
         });
